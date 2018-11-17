@@ -1,6 +1,7 @@
 %%
 clc;clear;close all;
 
+
 num = 351;
 load('Body_Info.mat','u_inf','v_inf','x_c','y_c','cyl_rad');
 gridfil = sprintf('%s/%s/%s.mat','Run_data','Query_data','Grid_info');
@@ -14,7 +15,7 @@ for i = 1:1:length(xq)
     Vxsum = Vxsum';
     Vysum = Vysum';
    for j = 1:1:num
-       
+      
        
        fil = sprintf('%s/%s/%s_%d.mat','Run_data','Query_data','velocitydata',j)
        load(fil);
@@ -27,6 +28,7 @@ for i = 1:1:length(xq)
        Vy_v = Vy_vor(:,idx);
        Vx = Vx_s+Vx_v;
        Vy = Vy_s+Vy_v;
+
        Vxsum = Vxsum+Vx+u_inf;
        Vysum = Vysum+Vy+v_inf;
 %        figure(1);hold on;

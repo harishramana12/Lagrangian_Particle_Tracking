@@ -6,6 +6,7 @@ clear;close all;
 num = 351;
 folder_name = 'Run_data';
 
+
 xmin = 0;
 xmax = 50;
 numx = 50;
@@ -33,7 +34,7 @@ sig = (h)/(2*pi);
 for i = 1:1:num
    
     
-    
+
     fprintf('calculation of velocity field for time step: %d',i);
     fprintf('\n');
     fil_read = sprintf('%s/vorticitydata_%d.mat',folder_name,i);
@@ -50,11 +51,11 @@ for i = 1:1:num
     for m = 1:1:size(X,1)
         
         for n = 1:1:size(X,2)
+
               
               
               %% Source contribution:  
   
-              
               for M = 1:1:length(lambda_write)
               
                 len_t = sqrt(((x_b(M+1)-x_b(M))^2)+((y_b(M+1)-y_b(M))^2));
@@ -107,8 +108,7 @@ for i = 1:1:num
                   end  
                   
               end
-              
-        
+
         end
     end
     
