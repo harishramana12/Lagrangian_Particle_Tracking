@@ -29,7 +29,7 @@ y_c = y_c(1);
 cyl_rad = (x_b-x_c).^2+(y_b-y_c).^2;
 cyl_rad = sqrt(cyl_rad(1));
 
-[x_con,y_con,theta_conrad] = compute_surface_normal_and_tangents(x_b,y_b,theta_b,x_c,y_c);
+[x_con,y_con,theta_conrad] = compute_surface_normal_and_tangents(x_b,y_b,theta_b,x_c,y_c,u_inf,v_inf,cyl_rad);
 
 num = length(x_con);
 h = (2*pi)/num;

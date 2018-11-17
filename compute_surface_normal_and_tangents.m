@@ -1,4 +1,4 @@
-function [x_con,y_con,theta_conrad] =  compute_surface_normal_and_tangents(x_b,y_b,theta_b,x_c,y_c)
+function [x_con,y_con,theta_conrad] =  compute_surface_normal_and_tangents(x_b,y_b,theta_b,x_c,y_c,u_inf,v_inf,cyl_rad)
 
 % control points:
 x_con = zeros(size(x_b)-1);
@@ -48,6 +48,6 @@ quiver(x_con,y_con,Normal_x,Normal_y,0.1);
 quiver(x_con,y_con,tangent_x,tangent_y,0.1);
 
 delete Body_Info.mat;
-save('Body_Info.mat','Normal_x','Normal_y','tangent_x','tangent_y','x_con','y_con','x_b','y_b','x_c','y_c','theta_conrad','theta_b');
+save('Body_Info.mat','Normal_x','Normal_y','tangent_x','tangent_y','x_con','y_con','x_b','y_b','x_c','y_c','theta_conrad','theta_b','u_inf','v_inf','cyl_rad');
 
 end

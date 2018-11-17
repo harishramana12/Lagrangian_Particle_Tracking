@@ -1,13 +1,10 @@
 %%
 clc;clear;close all;
-
+xq = [-10];
 num = 351;
-load('Body_Info.mat','u_inf','v_inf','x_c','y_c','cyl_rad');
+
 gridfil = sprintf('%s/%s/%s.mat','Run_data','Query_data','Grid_info');
 load(gridfil)
-%xq = X(1,:);
-xq = [30];
-
 for i = 1:1:length(xq)
     Vxsum  = zeros(1,size(Y,1));
     Vysum  = zeros(1,size(Y,1));
@@ -27,8 +24,8 @@ for i = 1:1:length(xq)
        Vy_v = Vy_vor(:,idx);
        Vx = Vx_s+Vx_v;
        Vy = Vy_s+Vy_v;
-       Vxsum = Vxsum+Vx+u_inf;
-       Vysum = Vysum+Vy+v_inf;
+       Vxsum = Vxsum+Vx;
+       Vysum = Vysum+Vy;
 %        figure(1);hold on;
 %        plot(Vx,y_plot,'--r');
        
@@ -37,11 +34,7 @@ for i = 1:1:length(xq)
     Vxavg = (Vxsum)/num;
     Vyavg = (Vysum)/num;
     Vavg = sqrt((Vxavg.^2)+(Vyavg.^2));
-    figure(1);hold on;
-    plot(Vxavg,y_plot,'--b');
-    figure(2);hold on;
-    plot(Vyavg,y_plot,'-r');
-    figure(3);
-    plot(Vavg,y_plot,':k')
+    figure(1);hold on
+    plot(Vavg,y_plot,'--b');
     
 end
